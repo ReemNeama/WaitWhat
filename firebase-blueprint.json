@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "RunStats": {
+      "title": "RunStats",
+      "description": "Detailed log of a single gameplay run",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "mode": { "type": "string", "enum": ["normal", "random"] },
+        "coinsEarned": { "type": "number" },
+        "duration": { "type": "number" },
+        "shiftsCount": { "type": "number" },
+        "gamesPlayed": { "type": "array" }
+      },
+      "required": ["id", "timestamp", "mode", "coinsEarned", "duration", "shiftsCount", "gamesPlayed"]
+    },
+    "Leaderboard": {
+      "title": "LeaderboardEntry",
+      "description": "Highscore record for individual players",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string" },
+        "coins": { "type": "number" },
+        "duration": { "type": "number" },
+        "timestamp": { "type": "number" }
+      },
+      "required": ["username", "coins", "duration", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/runs/{runId}": {
+      "schema": "RunStats",
+      "description": "Collection of individual gameplay histories."
+    },
+    "/leaderboard/{userId}": {
+      "schema": "Leaderboard",
+      "description": "Collection of aggregate high scores."
+    }
+  }
+}

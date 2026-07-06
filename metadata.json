@@ -1,0 +1,6 @@
+{
+  "name": "ShiftArcade",
+  "description": "An interactive 20-in-1 hyper-casual game with a unified global state and automatic random hidden shifting mechanics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
